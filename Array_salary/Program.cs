@@ -36,17 +36,34 @@ namespace Array_salary
             int[] unique_element = copy.Distinct().ToArray();   //создаем массив с уникальными элементами массива "copy"
 
 
-            int result = Array.FindIndex(profit, i => i == unique_element[0]); 
-            int result1 = Array.FindIndex(profit, i => i == unique_element[1]);
-            int result2 = Array.FindIndex(profit, i => i == unique_element[2]);                      
-
-              Console.WriteLine(result);
-            
+            //int result = Array.FindIndex(profit, i => i == unique_element[0]); 
+            //int result1 = Array.FindIndex(profit, i => i == unique_element[1]);
+            //int result2 = Array.FindIndex(profit, i => i == unique_element[2]);
+            //Console.WriteLine(result);
 
             
+            Console.WriteLine("\nХудшая прибыль в месяцах:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < profit.Length; j++)
+                {
+                    if (profit[j] == unique_element[i])
+                    {
+                        Console.Write(j + "   ");
+                    }                  
+                }
+            }
+            Console.WriteLine($"\n {unique_element[0] * 100,3} {unique_element[1] * 100,3} {unique_element[2] * 100,3}");
 
+            int count = 0;
+            for (int y = 0; y < copy.Length; y++)
+            {                    
+               if (copy[y] > 0) count++;    
+               
+            }
+            Console.WriteLine("\nМесяцев с положительной прибылью: " + count);
 
-            Console.Write( $"\n {unique_element[0] * 100,3} {unique_element[1] * 100,3} {unique_element[2] * 100,3}");
+           
             Console.WriteLine();
 
 
